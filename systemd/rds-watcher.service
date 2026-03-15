@@ -1,0 +1,17 @@
+[Unit]
+Description=RDS Watcher v2
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/rds-watcher-v2.sh
+Restart=always
+RestartSec=5
+User=USERNAME #Username to run the service as
+WorkingDirectory=/home/USERNAME #Workinf directory, typically your home directory
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
